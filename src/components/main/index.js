@@ -27,6 +27,7 @@ class Main extends Component {
               <CodeForm generate_code = {this.generate_code}/>
               </div>
               <br/>
+              <hr />
               <CodeContainer codes = {this.state.codes} />
             </Container>
         )

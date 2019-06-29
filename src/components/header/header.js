@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    margin: '1%',
   },
 });
 
@@ -14,7 +15,7 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography variant="h6" color="inherit">

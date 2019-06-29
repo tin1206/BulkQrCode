@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 import QRCode from 'qrcode.react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-
-import './code_form.css'
-
-
-
-
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 class CodeForm extends React.Component {
   constructor(){
@@ -17,7 +13,6 @@ class CodeForm extends React.Component {
   }
 
   onsubmit = () => {
-    console.log("onClick");
     console.log(this.state.code_text)
     let text = this.state.code_text.split('\n')
     this.props.generate_code(text)
@@ -50,7 +45,17 @@ class CodeForm extends React.Component {
           shrink: true,
         }}
       />
-        <button onClick = {this.onsubmit}>Generate Codes</button>
+      <Grid container
+      direction="row"
+      justify="flex-end"
+      alignItems="flex-end"
+      >
+      <Grid item xs={3}>
+        <Button variant="contained" color="secondary" onClick = {this.onsubmit}>
+        Generate Codes
+        </Button>
+        </Grid>
+      </Grid>
       </div>
     )
   }
