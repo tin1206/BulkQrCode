@@ -9,23 +9,26 @@ import Grid from '@material-ui/core/Grid';
 class CodeForm extends React.Component {
   constructor(){
     super()
-    this.state = {code_text: ""}
+    this.state = {code_text: "", show_pdf: false}
   }
 
   onsubmit = () => {
-    console.log(this.state.code_text)
     let text = this.state.code_text.split('\n')
     this.props.generate_code(text)
     this.setState({
-      code_text: ""
+      code_text: "",
+      show_pdf: true
     })
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     this.setState({
       code_text: event.target.value
     })
+  }
+
+  handleClick = (event) => {
+    this.props.open_print_window()
   }
   render(){
     return(
@@ -47,14 +50,20 @@ class CodeForm extends React.Component {
       />
       <Grid container
       direction="row"
-      justify="flex-end"
+      justify="space-between"
       alignItems="flex-end"
       >
-      <Grid item xs={3}>
-        <Button variant="contained" color="secondary" onClick = {this.onsubmit}>
+       <Grid item xs={3}>
+        <Button variant="contained" color="default" onClick = {this.onsubmit}>
         Generate Codes
         </Button>
         </Grid>
+
+        {this.state.show_pdf ?
+        <Grid item xs={3}>
+         <Button variant="contained" color="default" onClick={this.handleClick}>Print</Button>
+         </Grid>: ""
+       }
       </Grid>
       </div>
     )

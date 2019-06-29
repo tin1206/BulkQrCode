@@ -9,10 +9,10 @@ import Paper from '@material-ui/core/Paper';
 class CodeContainer extends React.Component{
    render(){
      let qr_codes = this.props.codes.map((code) =>
-             <Grid item xs = {2}><QRCode value = {code} /><p>{code}</p></Grid>
+             <Grid item xs = {3}><QRCode value = {code} /><p>{code}</p></Grid>
    )
      return(
-       <Paper style={{paddingLeft:"4%"}}>
+       <Paper style={{paddingLeft:"4%"}} id={'code_container'}>
        <Grid container spacing={4}
        direction="row"
        justify="center"
