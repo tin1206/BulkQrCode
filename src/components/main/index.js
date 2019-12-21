@@ -33,9 +33,7 @@ class Main extends Component {
             <Container fixed>
             <div>
               <CodeForm generate_code = {this.generate_code} open_print_window = {this.open_print_window}/>
-              </div>
-              <br/>
-              <hr />
+            </div>
               <CodeContainer codes = {this.state.codes} />
               {this.state.open_window ? <PrintWindow codes = {this.state.codes} /> : ""}
             </Container>
